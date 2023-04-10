@@ -9,15 +9,15 @@ require('vscode').setup({
     transparent = true,
 
     -- Enable italic comment
-    italic_comments = false,
+    italic_comments = true,
 
     -- Disable nvim-tree background color
     disable_nvimtree_bg = true,
 
     -- Override colors (see ./lua/vscode/colors.lua)
-    -- color_overrides = {
-    --     vscLineNumber = '#FFFFFF',
-    -- },
+    color_overrides = {
+        vscLineNumber = '#000000',
+    },
 
     -- Override highlight groups (see ./lua/vscode/theme.lua)
     group_overrides = {
