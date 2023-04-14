@@ -16,7 +16,7 @@ require('vscode').setup({
 
     -- Override colors (see ./lua/vscode/colors.lua)
     color_overrides = {
-        vscLineNumber = '#000000',
+        vscLineNumber = '#6E7681',
     },
 
     -- Override highlight groups (see ./lua/vscode/theme.lua)
