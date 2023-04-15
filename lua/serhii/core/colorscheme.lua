@@ -1,6 +1,6 @@
 vim.o.background = 'light'
 
--- local c = require('vscode.colors').get_colors()
+local c = require('vscode.colors').get_colors()
 require('vscode').setup({
     -- Alternatively set style in setup
     -- style = 'light'
@@ -24,6 +24,11 @@ require('vscode').setup({
         -- this supports the same val table as vim.api.nvim_set_hl
         -- use colors from this colorscheme by requiring vscode.colors!
         -- Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+
+        ["@symbol.ruby"] = { fg = c.vscBlue, bg = "NONE" },
+        -- this is needed for symbols (most likely a bug in nvim-treesitter)
+        ["@constant.ruby"] = { fg = c.vscBlue, bg = "NONE" },
+        ["@string.regex"] = { fg = c.vscYellowOrange, bg = "NONE" },
     }
 })
 require('vscode').load()
