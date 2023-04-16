@@ -20,6 +20,9 @@ keymap.set("n", "<leader>of", ":NvimTreeFindFile<CR>")
 local builtin = require('telescope.builtin')
 
 keymap.set("n", '<leader>ff', builtin.git_files, {})
+keymap.set("n", '<leader>fo', function()
+  builtin.oldfiles({ only_cwd = true })
+end, {})
 -- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
