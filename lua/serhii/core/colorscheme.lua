@@ -29,8 +29,6 @@ require('vscode').setup({
       -- Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
 
       ["@symbol.ruby"] = { fg = c.vscBlue, bg = "NONE" },
-      -- this is needed for array symbols %i[qwe rty] (most likely a bug in nvim-treesitter)
-      ["@constant.ruby"] = { fg = c.vscBlue, bg = "NONE" },
       ["@variable.ruby"] = { fg = darkBlue, bg = "NONE" },
       -- instance & class variables
       ["@label.ruby"] = { fg = darkBlue, bg = "NONE" },
