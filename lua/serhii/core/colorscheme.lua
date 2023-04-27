@@ -3,6 +3,8 @@ vim.o.background = 'light'
 local c = require('vscode.colors').get_colors()
 local darkBlue = '#001080'
 local constColor = '#257f99'
+-- local tagColor = '#810403'
+-- local tagAttribute = '#e82121'
 
 require('vscode').setup({
   -- Enable italic comment
@@ -31,6 +33,9 @@ require('vscode').setup({
 
     ["@string"] = { fg = '#a31414', bg = "NONE" },
     ["@string.regex"] = { fg = c.vscYellowOrange, bg = "NONE" },
+
+    ["@constructor"] = { fg = constColor, bg = "NONE" },
+    ["@constant"] = { fg = constColor, bg = "NONE" },
   }
 })
 require('vscode').load()

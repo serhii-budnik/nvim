@@ -73,6 +73,7 @@ return packer.startup(function(use)
   -- hightlights
   use("nvim-treesitter/nvim-treesitter", { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
+  use('nvim-treesitter/nvim-treesitter-context')
 
   use 'windwp/nvim-autopairs'
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })

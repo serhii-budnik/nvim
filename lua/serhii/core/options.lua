@@ -29,7 +29,7 @@ opt.softtabstop = 2 -- experimental
 
 -- line wrapping
 
-opt.wrap = true
+opt.wrap = false
 
 -- search settings
 
