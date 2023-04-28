@@ -8,7 +8,7 @@ local constColor = '#257f99'
 
 require('vscode').setup({
   -- Enable italic comment
-  italic_comments = true,
+  italic_comments = false,
 
   -- Disable nvim-tree background color
   disable_nvimtree_bg = false,

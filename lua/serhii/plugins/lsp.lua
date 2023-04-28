@@ -9,7 +9,6 @@ lsp.ensure_installed({
   'tsserver',
   'eslint',
   'solargraph',
-  'ruby_ls',
 })
 
 local cmp_mappings = lsp.defaults.cmp_mappings()
@@ -21,10 +20,16 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
--- test ruby lsp
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruby_ls
-require'lspconfig'.ruby_ls.setup{}
-
+require'lspconfig'.solargraph.setup {
+  cmd = { "solargraph", "stdio" },
+  filetypes = { "ruby" },
+  root_dir = require'lspconfig'.util.root_pattern("Gemfile", ".git"),
+  settings = {
+    solargraph = {
+      diagnostics = true
+    }
+  }
+}
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
