@@ -20,18 +20,51 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
-require'lspconfig'.solargraph.setup {
-  cmd = { "solargraph", "stdio" },
-  filetypes = { "ruby" },
-  root_dir = require'lspconfig'.util.root_pattern("Gemfile", ".git"),
-  settings = {
-    solargraph = {
-      diagnostics = true
-    }
-  }
-}
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
+
+lsp.configure('solargraph', {
+  init_options = {
+    formatting = false,
+  },
+  settings = {
+    solargraph = {
+      diagnostics = false
+    }
+  },
+})
+
+lsp.configure("ruby_ls", {
+  init_options = {
+    -- diagnostics does not work for builtin lsp yet. Added on_attach function to get this working
+    enabledFeatures = {},
+  },
+  on_attach = function(client, bufnr)
+    local callback = function()
+      local params = vim.lsp.util.make_text_document_params(bufnr)
+
+      client.request(
+      'textDocument/diagnostic',
+      { textDocument = params },
+      function(err, result)
+        -- print(string.format("err: %s, result: %s ", err, result))
+        if err or not result then return end
+
+        vim.lsp.diagnostic.on_publish_diagnostics(
+        nil,
+        vim.tbl_extend('keep', params, { diagnostics = result.items }),
+        { client_id = client.id }
+        )
+      end
+      )
+    end
+
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePre', 'ModeChanged *:n' }, {
+      buffer = bufnr,
+      callback = callback,
+    })
+  end
+})
 
 lsp.setup()
 
