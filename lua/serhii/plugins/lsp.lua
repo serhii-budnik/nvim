@@ -37,7 +37,7 @@ lsp.configure('solargraph', {
 lsp.configure("ruby_ls", {
   init_options = {
     -- diagnostics does not work for builtin lsp yet. Added on_attach function to get this working
-    enabledFeatures = {},
+    enabledFeatures = { "codeActions" },
   },
   on_attach = function(client, bufnr)
     local callback = function()
@@ -47,7 +47,6 @@ lsp.configure("ruby_ls", {
       'textDocument/diagnostic',
       { textDocument = params },
       function(err, result)
-        -- print(string.format("err: %s, result: %s ", err, result))
         if err or not result then return end
 
         vim.lsp.diagnostic.on_publish_diagnostics(
