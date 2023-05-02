@@ -65,10 +65,17 @@ lsp.configure("ruby_ls", {
   end
 })
 
+lsp.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = '»'
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
   -- update_in_insert = false,
   underline = true,
