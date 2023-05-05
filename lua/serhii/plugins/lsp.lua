@@ -37,7 +37,7 @@ lsp.configure('solargraph', {
 lsp.configure("ruby_ls", {
   init_options = {
     -- diagnostics does not work for builtin lsp yet. Added on_attach function to get this working
-    enabledFeatures = { "codeActions", "semanticHighlighting" },
+    enabledFeatures = { "codeActions" },
   },
   on_attach = function(client, bufnr)
     local callback = function()

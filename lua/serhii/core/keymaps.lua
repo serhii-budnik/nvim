@@ -39,6 +39,7 @@ keymap.set("n", "J", "mzJ`z")
 
 -- buffers
 keymap.set("n", "<leader>bd", ":bdelete<CR>")
+keymap.set("n", "<leader>bad", ":%bdelete<CR>")
 keymap.set("n", "L", ":bnext<CR>")
 keymap.set("n", "H", ":bprevious<CR>")
 
