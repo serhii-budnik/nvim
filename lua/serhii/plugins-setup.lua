@@ -31,6 +31,7 @@ return packer.startup(function(use)
   -- use "123/123"
   -- colorscheme
   use 'Mofiqul/vscode.nvim'
+  use "EdenEast/nightfox.nvim"
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 

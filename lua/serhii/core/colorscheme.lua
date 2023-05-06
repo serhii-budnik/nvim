@@ -38,4 +38,6 @@ require('vscode').setup({
     ["@constant"] = { fg = constColor, bg = "NONE" },
   }
 })
-require('vscode').load()
+
+-- require('vscode').load()
+vim.cmd("colorscheme dayfox")
