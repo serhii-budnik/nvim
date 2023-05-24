@@ -3,15 +3,20 @@ local opt = vim.opt
 -- vertical line
 opt.colorcolumn = "120"
 
--- folding does not work :\
--- -- opt.foldmethod="expr"
--- -- opt.foldexpr="nvim_treesitter#foldexpr()"
--- -- opt.foldlevel = 20
--- opt.foldcolumn = "1"
--- opt.foldlevel = 99
--- opt.foldlevelstart = -1
--- opt.foldenable = true
+-- folding
+vim.cmd([[
+set foldmethod=expr 
+set foldexpr=nvim_treesitter#foldexpr() 
+set foldlevel=99
+set nofoldenable
+]])
+-- https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1159637962
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*" },
+    command = "normal zx",
+})
 
+-- keep cursor in the middle of the screen
 opt.scrolloff = 20
 
 -- line numbers
