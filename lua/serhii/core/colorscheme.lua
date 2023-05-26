@@ -10,5 +10,4 @@ require('nightfox').setup({
   }
 })
 
--- require('vscode').load()
 vim.cmd("colorscheme dayfox")
