@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 -- keep cursor in the middle of the screen
-opt.scrolloff = 20
+opt.scrolloff = 5
 
 -- line numbers
 
