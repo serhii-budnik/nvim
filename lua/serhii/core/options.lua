@@ -12,12 +12,12 @@ set nofoldenable
 ]])
 -- https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1159637962
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-    pattern = { "*" },
-    command = "normal zx",
+  pattern = { "*" },
+  command = "normal zx",
 })
 
 -- keep cursor in the middle of the screen
-opt.scrolloff = 5
+opt.scrolloff = 25
 
 -- line numbers
 
