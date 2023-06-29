@@ -71,7 +71,20 @@ vim.api.nvim_create_user_command("Cppath", function()
     vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
 
+
+vim.api.nvim_create_user_command("CpRemotePath", function()
+  local remote = vim.fn.system("git config --get remote.origin.url"):gsub("git@", ""):gsub(".git", ""):gsub(":", "/"):gsub("\n", "")
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+  local relative_to_git = vim.fn.expand("%:.")
+
+  local res = remote.. '/blob/' .. branch .. '/' .. relative_to_git
+
+  vim.fn.setreg("+", res)
+  vim.notify(res)
+end, {})
+
 keymap.set("n", "<leader>rp", ":Cppath<CR>")
+keymap.set("n", "<leader>gp", ":CpRemotePath<CR>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
