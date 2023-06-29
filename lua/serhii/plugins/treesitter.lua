@@ -10,7 +10,8 @@ require'nvim-treesitter.configs'.setup {
     "css",
     "scss",
     "sql",
-    "rust"
+    "rust",
+    "sql"
   },
 
   indent = {
