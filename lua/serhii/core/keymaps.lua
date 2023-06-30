@@ -80,7 +80,7 @@ vim.api.nvim_create_user_command("CpRemotePath", function()
   local res = remote.. '/blob/' .. branch .. '/' .. relative_to_git
 
   vim.fn.setreg("+", res)
-  vim.notify(res)
+  vim.notify('Copied "' .. res .. '" to the clipboard!')
 end, {})
 
 keymap.set("n", "<leader>rp", ":Cppath<CR>")
