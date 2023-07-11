@@ -78,7 +78,7 @@ vim.api.nvim_create_user_command("CpRemotePath", function()
   local relative_to_git = vim.fn.expand("%:.")
   local cursor_row_number = vim.fn.line('.')
 
-  local res = remote.. '/blob/' .. branch .. '/' .. relative_to_git .. '#L' .. cursor_row_number
+  local res = 'https://' .. remote .. '/blob/' .. branch .. '/' .. relative_to_git .. '#L' .. cursor_row_number
 
   vim.fn.setreg("+", res)
   vim.notify('Copied "' .. res .. '" to the clipboard!')
