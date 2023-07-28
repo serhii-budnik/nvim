@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+--unset
+keymap.set("n", "<C-z>", "")
+
 -- general keymaps
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
