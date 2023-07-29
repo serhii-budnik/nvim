@@ -16,6 +16,13 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "normal zx",
 })
 
+vim.api.nvim_create_autocmd({ "TextYankPost"}, {
+  pattern = { "*" },
+  callback = function()
+    vim.highlight.on_yank({ higroup="IncSearch", timeout=200 })
+  end,
+})
+
 -- keep cursor in the middle of the screen
 opt.scrolloff = 25
 
@@ -40,9 +47,6 @@ opt.wrap = false
 
 opt.ignorecase = true
 opt.smartcase = true
-
--- cursor line
--- opt.cursorline = true
 
 -- appearance
 opt.termguicolors = true
