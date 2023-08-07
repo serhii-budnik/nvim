@@ -16,6 +16,10 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "normal zx",
 })
 
+vim.cmd([[
+setlocal spell spelllang=en_us
+]])
+
 -- keep cursor in the middle of the screen
 opt.scrolloff = 25
 
