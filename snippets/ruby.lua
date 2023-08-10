@@ -22,7 +22,6 @@ ls.add_snippets('ruby', {
     {
       t('# frozen_string_literal: true'),
       t({'', ''}),
-      t({'', ''}),
     }
   )
 })
