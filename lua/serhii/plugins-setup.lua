@@ -36,7 +36,6 @@ return packer.startup(function(use)
 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
-  use("nvim-tree/nvim-web-devicons")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
