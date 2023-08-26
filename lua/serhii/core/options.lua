@@ -23,6 +23,10 @@ setlocal spell spelllang=en_us
 -- keep cursor in the middle of the screen
 opt.scrolloff = 25
 
+-- list chars
+vim.opt.listchars:append({ trail = "·", eol = " ", tab = "  ", nbsp = " " })
+opt.list = true
+
 -- line numbers
 
 opt.relativenumber = true
