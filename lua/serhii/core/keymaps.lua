@@ -8,7 +8,7 @@ keymap.set("n", "<C-z>", "")
 -- general keymaps
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
-keymap.set("n", "x", '"_x')
+-- keymap.set("n", "x", '"_x')
 
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
@@ -39,7 +39,7 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- append current line up/down without moving cursor
-keymap.set("n", "J", "mzJ`z")
+-- keymap.set("n", "J", "mzJ`z")
 
 -- buffers
 keymap.set("n", "<leader>bd", ":bdelete<CR>")

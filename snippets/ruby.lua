@@ -14,7 +14,7 @@ ls.add_snippets('ruby', {
       t('>>>>>>> #{'),
       rep(1),
       t('.inspect}")'),
-      t({'', ''})
+      t({''})
     }
   ),
   s(
