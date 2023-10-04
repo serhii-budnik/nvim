@@ -1,6 +1,7 @@
 local fzf_lua = require('fzf-lua')
 
 fzf_lua.setup({
+  "telescope",
   files = {
     prompt = 'Files❯ ',
     cwd_prompt = false,
@@ -10,6 +11,7 @@ fzf_lua.setup({
       layout = "vertical",
     },
   },
+  fzf_opts = {['--layout'] = 'reverse-list'}
 })
 
 vim.keymap.set("n", "<leader>fp", fzf_lua.files)
