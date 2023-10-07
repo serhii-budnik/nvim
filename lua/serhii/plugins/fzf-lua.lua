@@ -16,3 +16,5 @@ fzf_lua.setup({
 
 vim.keymap.set("n", "<leader>fp", fzf_lua.files)
 vim.keymap.set("n", "<leader>fo", fzf_lua.oldfiles)
+vim.keymap.set("n", "<leader>fs", fzf_lua.live_grep)
+vim.keymap.set("n", "<leader>fr", fzf_lua.resume)

@@ -10,7 +10,7 @@ ls.add_snippets('ruby', {
     'rlog',
     {
       t('Rails.logger.info("'),
-      i(1, 'var'),
+      i(1),
       t('>>>>>>> #{'),
       rep(1),
       t('.inspect}")'),
