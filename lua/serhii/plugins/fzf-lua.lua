@@ -5,6 +5,7 @@ fzf_lua.setup({
   files = {
     prompt = 'Files❯ ',
     cwd_prompt = false,
+    file_icons = false,
   },
   winopts = {
     preview = {

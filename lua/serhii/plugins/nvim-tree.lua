@@ -17,6 +17,17 @@ nvimtree.setup({
     },
   },
   renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = false,
+        git = true,
+        modified = false,
+        diagnostics = false,
+        bookmarks = true,
+      },
+    },
     indent_markers = {
       enable = true,
     },

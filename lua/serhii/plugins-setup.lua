@@ -36,10 +36,7 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { { 'nvim-lua/plenary.nvim' } } })
 
-  use { "ibhagwan/fzf-lua",
-    -- optional for icon support
-    requires = { "nvim-tree/nvim-web-devicons" }
-  }
+  use { "ibhagwan/fzf-lua" }
 
   -- lsp
   use {
@@ -78,7 +75,7 @@ return packer.startup(function(use)
   -- commenting with gc
   use("numToStr/Comment.nvim")
 
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "v3.*" }
 
   use "lukas-reineke/indent-blankline.nvim"
 

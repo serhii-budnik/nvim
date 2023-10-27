@@ -18,6 +18,15 @@ ls.add_snippets('ruby', {
     }
   ),
   s(
+    'rlogp',
+    {
+      t('Rails.logger.info("'),
+      i(1),
+      t('>>>>>>>")'),
+      t({''})
+    }
+  ),
+  s(
     'fro',
     {
       t('# frozen_string_literal: true'),
