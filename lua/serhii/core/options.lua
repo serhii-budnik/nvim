@@ -23,10 +23,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   command = "if &buftype == '' && expand('%:p') != '' | write | endif",
 })
 
-vim.cmd([[
-setlocal spell spelllang=en_us
-]])
-
 -- keep cursor in the middle of the screen
 opt.scrolloff = 10
 
@@ -71,5 +67,3 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
-
-vim.opt.updatetime = 50
