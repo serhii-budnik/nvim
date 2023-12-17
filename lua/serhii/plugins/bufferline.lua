@@ -19,4 +19,3 @@ require("bufferline").setup{
     },
   }
 }
-

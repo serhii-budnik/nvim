@@ -23,10 +23,8 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- buffers
-keymap.set("n", "<leader>bd", ":bdelete<CR>")
-keymap.set("n", "<leader>bad", ":%bdelete<CR>")
-keymap.set("n", "L", ":bnext<CR>")
-keymap.set("n", "H", ":bprevious<CR>")
+keymap.set("n", "<leader>bd", ":bdelete!<CR>")
+keymap.set("n", "<leader>bad", ":%bdelete!<CR>")
 
 -- lsp
 keymap.set("n", "<leader>g.", vim.lsp.buf.code_action, {})
@@ -47,9 +45,6 @@ keymap.set("v", '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR
 keymap.set("n", '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
   desc = "Search on current file"
 })
-
--- find next occurace of the word
-keymap.set("n", '<leader>d', '*')
 
 -- copy relative path to clipboard
 vim.api.nvim_create_user_command("Cppath", function()

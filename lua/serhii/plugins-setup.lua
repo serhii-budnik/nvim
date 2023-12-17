@@ -20,10 +20,8 @@ end
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- my plugings here
-  -- use "123/123"
   -- colorscheme
-  use "EdenEast/nightfox.nvim"
+  use 'navarasu/onedark.nvim'
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 

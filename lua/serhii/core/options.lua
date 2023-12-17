@@ -5,8 +5,8 @@ opt.colorcolumn = "120"
 
 -- folding
 vim.cmd([[
-set foldmethod=expr 
-set foldexpr=nvim_treesitter#foldexpr() 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 set nofoldenable
 ]])
@@ -16,11 +16,11 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "normal zx",
 })
 
--- auto save buffer with buftype ''. Otherwise, for nvim-tree, it will be `nofile`
+-- remove trailing spaces and auto save buffer with buftype ''. Otherwise, for nvim-tree, it will be `nofile`
 -- or for fugitive it will be `nowrite`, so no errors will be thrown
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   pattern = { "*" },
-  command = "if &buftype == '' && expand('%:p') != '' | write | endif",
+  command = "if &buftype == '' && expand('%:p') != '' | exe 'norm m`' | execute '%s/\\s\\+$//e| norm g``' | write | endif",
 })
 
 -- keep cursor in the middle of the screen
@@ -67,3 +67,6 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+opt.iskeyword:append("?")
+opt.iskeyword:append("!")
