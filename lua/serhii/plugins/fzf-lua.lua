@@ -1,15 +1,19 @@
 local fzf_lua = require('fzf-lua')
 
 fzf_lua.setup({
-  "telescope",
+  "max-perf",
   files = {
     prompt = 'Files❯ ',
     cwd_prompt = false,
-    file_icons = false,
   },
   winopts = {
     preview = {
       layout = "vertical",
+    },
+  },
+  previewers = {
+    bat = {
+      theme = 'base16',
     },
   },
   fzf_opts = {['--layout'] = 'reverse-list'}
