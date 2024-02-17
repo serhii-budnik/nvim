@@ -10,11 +10,6 @@ set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 set nofoldenable
 ]])
--- https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1159637962
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  command = "normal zx",
-})
 
 -- remove trailing spaces and auto save buffer with buftype ''. Otherwise, for nvim-tree, it will be `nofile`
 -- or for fugitive it will be `nowrite`, so no errors will be thrown
@@ -53,7 +48,6 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- appearance
-opt.termguicolors = true
 opt.signcolumn = "yes"
 
 -- backspace

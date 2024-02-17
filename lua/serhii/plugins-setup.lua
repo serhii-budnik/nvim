@@ -22,6 +22,7 @@ return packer.startup(function(use)
 
   -- colorscheme
   use 'navarasu/onedark.nvim'
+  use 'lourenci/github-colors'
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
@@ -59,6 +60,11 @@ return packer.startup(function(use)
   use("nvim-treesitter/nvim-treesitter", { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
   use('nvim-treesitter/nvim-treesitter-context')
+
+  use({
+    'Wansmer/treesj',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
+  })
 
   use 'windwp/nvim-autopairs'
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })

@@ -58,7 +58,7 @@ lsp.configure("ruby_ls", {
       )
     end
 
-    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePre', 'ModeChanged *:n' }, {
+    vim.api.nvim_create_autocmd({ 'BufEnter', "InsertLeave", "TextChanged" }, {
       buffer = bufnr,
       callback = callback,
     })

@@ -46,15 +46,30 @@ keymap.set("n", '<leader>sp', '<cmd>lua require("spectre").open_file_search({sel
   desc = "Search on current file"
 })
 
--- copy relative path to clipboard
-vim.api.nvim_create_user_command("Cppath", function()
+local function get_relative_path(with_cursor_row_number)
     local path = vim.fn.expand("%:.")
+
+    if with_cursor_row_number then
+        path = path .. ":" .. vim.fn.line('.')
+    end
+
+    return path
+end
+
+-- copy relative path to clipboard
+vim.api.nvim_create_user_command("CopyRelativePath", function()
+    local path = get_relative_path(false)
     vim.fn.setreg("+", path)
-    vim.notify('Copied "' .. path .. '" to the clipboard!')
+    vim.notify('copied "' .. path .. '" to the clipboard!')
 end, {})
 
+vim.api.nvim_create_user_command("CopyRelativePathWithRowNumber", function()
+    local path = get_relative_path(true)
+    vim.fn.setreg("+", path)
+    vim.notify('copied "' .. path .. '" to the clipboard!')
+end, {})
 
-vim.api.nvim_create_user_command("CpRemotePath", function()
+vim.api.nvim_create_user_command("CopyRemotePath", function()
   local remote = vim.fn.system("git config --get remote.origin.url"):gsub("git@", ""):gsub(".git", ""):gsub(":", "/"):gsub("\n", "")
   local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
   local relative_to_git = vim.fn.expand("%:.")
@@ -66,8 +81,9 @@ vim.api.nvim_create_user_command("CpRemotePath", function()
   vim.notify('Copied "' .. res .. '" to the clipboard!')
 end, {})
 
-keymap.set("n", "<leader>rp", ":Cppath<CR>")
-keymap.set("n", "<leader>gp", ":CpRemotePath<CR>")
+keymap.set("n", "<leader>rp", ":CopyRelativePath<CR>")
+keymap.set("n", "<leader>rlp", ":CopyRelativePathWithRowNumber<CR>")
+keymap.set("n", "<leader>gp", ":CopyRemotePath<CR>")
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
