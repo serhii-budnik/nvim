@@ -15,14 +15,15 @@ set nofoldenable
 -- or for fugitive it will be `nowrite`, so no errors will be thrown
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   pattern = { "*" },
-  command = "if &buftype == '' && expand('%:p') != '' | exe 'norm m`' | execute '%s/\\s\\+$//e| norm g``' | write | endif",
+  -- exe 'norm m`' | execute '%s/\\s\\+$//e| norm g``' | -- temp
+  command = "if &buftype == '' && expand('%:p') != '' | write | endif",
 })
 
 -- keep cursor in the middle of the screen
 opt.scrolloff = 10
 
 -- list chars
-vim.opt.listchars:append({ trail = "·", eol = " ", tab = "  ", nbsp = " " })
+vim.opt.listchars:append({ trail = "·",  tab = "  ", nbsp = " " })
 opt.list = true
 
 -- line numbers
