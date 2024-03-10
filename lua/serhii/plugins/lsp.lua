@@ -1,29 +1,36 @@
-local lsp = require('lsp-zero').preset({
-  name = 'minimal',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
+local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
+
+lsp.on_attach(function(_, bufnr)
+  lsp.default_keymaps({
+    buffer = bufnr,
+  })
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = { "solargraph", "tsserver", "rust_analyzer" },
+  handlers = {
+    lsp.default_setup,
+  },
 })
 
-lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-  'solargraph',
+local cmp = require('cmp')
+
+require('luasnip.loaders.from_vscode').lazy_load()
+
+cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'nvim_lua'},
+    {name = 'luasnip', keyword_length = 2},
+    {name = 'buffer', keyword_length = 3},
+  },
+  formatting = lsp.cmp_format({details = false}),
 })
 
-local cmp_mappings = lsp.defaults.cmp_mappings()
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
-
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
-
-lsp.configure('solargraph', {
+lspconfig.solargraph.setup({
   init_options = {
     formatting = false,
   },
@@ -34,7 +41,17 @@ lsp.configure('solargraph', {
   },
 })
 
-lsp.configure("ruby_ls", {
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
+lspconfig.ruby_ls.setup({
   init_options = {
     -- diagnostics does not work for builtin lsp yet. Added on_attach function to get this working
     enabledFeatures = { "codeActions" },
@@ -64,15 +81,6 @@ lsp.configure("ruby_ls", {
     })
   end
 })
-
-lsp.set_sign_icons({
-  error = '✘',
-  warn = '▲',
-  hint = '⚑',
-  info = '»'
-})
-
-lsp.setup()
 
 vim.diagnostic.config({
   virtual_text = false,

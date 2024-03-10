@@ -15,7 +15,6 @@ set nofoldenable
 -- or for fugitive it will be `nowrite`, so no errors will be thrown
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   pattern = { "*" },
-  -- exe 'norm m`' | execute '%s/\\s\\+$//e| norm g``' | -- temp
   command = "if &buftype == '' && expand('%:p') != '' | write | endif",
 })
 
