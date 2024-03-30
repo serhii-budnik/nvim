@@ -41,6 +41,16 @@ lspconfig.solargraph.setup({
   },
 })
 
+lspconfig.rust_analyzer.setup({
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {

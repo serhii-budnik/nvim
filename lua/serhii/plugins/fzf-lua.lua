@@ -13,7 +13,7 @@ fzf_lua.setup({
   },
   previewers = {
     bat = {
-      theme = 'base16',
+      theme = 'OneHalfLight',
     },
   },
   fzf_opts = {['--layout'] = 'reverse-list'}

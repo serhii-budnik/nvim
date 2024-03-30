@@ -22,6 +22,7 @@ return packer.startup(function(use)
 
   -- colorscheme
   use 'lourenci/github-colors'
+  use 'navarasu/onedark.nvim'
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
